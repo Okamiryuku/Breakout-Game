@@ -13,7 +13,7 @@ class GameOver(Turtle):
 
     def show_message(self):
         self.clear()
-        self.write(self.message, align="center", font=("Arial", 24, "normal"))
+        self.write(self.message, align="center", font=("Arial", 32, "bold"))
 
     def game_over_check(self, ball):
         if ball.ycor() < -600:
