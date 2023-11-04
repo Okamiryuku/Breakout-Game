@@ -15,10 +15,10 @@ screen.tracer(0)
 
 # Calling classes
 paddle = Paddle((0, -550))
-ball = Ball()
+ball = Ball((0, -530))
 
 # Player Scoreboard
-player_1 = ScoreBoard(0)
+scoreboard = ScoreBoard(0)
 
 
 # Registering Commands
@@ -33,14 +33,11 @@ while game_is_on:
     time.sleep(ball.move_speed)
     screen.update()
     ball.move()
-    if ball.ycor() > 280 or ball.ycor() < -280:
+    if ball.ycor() > 580 or ball.ycor() < -580:
         ball.bounce()
 
-    if ball.distance(paddle) < 50 and ball.xcor() > 320 or ball.xcor() < -320:
-        ball.paddle_bounce()
+    if ball.xcor() > 350 or ball.xcor() < -350:
+        ball.bounce()
 
-    if ball.xcor() < -380:
-        player_1.increase_score()
-        ball.reset_position()
 
 screen.exitonclick()
