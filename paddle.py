@@ -9,13 +9,13 @@ class Paddle(Turtle):
         self.shape("square")
         self.color("white")
         self.penup()
-        self.turtlesize(stretch_wid=5, stretch_len=1)
+        self.turtlesize(stretch_wid=1, stretch_len=6)
         self.goto(paddle_pos)
 
-    def up(self):
-        new_y = self.ycor() + 20
-        self.goto(self.xcor(), new_y)
+    def move_right(self):
+        new_x = self.xcor() + 20
+        self.goto(new_x, self.ycor())
 
-    def down(self):
-        new_y = self.ycor() - 20
-        self.goto(self.xcor(), new_y)
+    def move_left(self):
+        new_x = self.xcor() - 20
+        self.goto(new_x, self.ycor())
