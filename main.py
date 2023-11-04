@@ -16,7 +16,7 @@ screen.tracer(0)
 
 # Calling classes
 paddle = Paddle((0, -550))
-ball = Ball((0, -530))
+ball = Ball((0, -525))
 game_over = GameOver()
 
 # Player Scoreboard
@@ -38,6 +38,9 @@ while game_is_on:
 
     if ball.xcor() > 385 or ball.xcor() < -385:
         ball.bounce_x()
+
+    if ball.distance(paddle) < 20:
+        ball.paddle_bounce()
 
     if ball.ycor() < -600:
         game_over.game_over_check(ball=ball)
