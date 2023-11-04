@@ -19,21 +19,21 @@ ball = Ball((0, -525))
 list_bricks = []  # My list of Bricks Objects
 
 # Set the initial position for the first line of bricks
-y_pos = 300
+y_pos = 400
 brick_count = 14  # Number of bricks in a row
-total_width = 815  # Total width for the row
+total_width = 800  # Total width for the row
 
 # Calculate the fixed distance between bricks
 brick_width = total_width / brick_count
 
 # Loop to create multiple rows of bricks
-for _ in range(4):
-    x_pos = -total_width / 2
+for _ in range(7):
+    x_pos = -380
     for _ in range(brick_count):
         # Generate a random width for the brick
         random_width = random.uniform(0.5, 2.8)
-        brick = Brick((x_pos, y_pos), random_width)
-        list_bricks.append(brick)
+        wall = Brick((x_pos, y_pos), random_width)
+        list_bricks.append(wall)
         x_pos += brick_width
     y_pos -= 50
 
@@ -62,5 +62,11 @@ while game_is_on:
 
     if ball.ycor() < -600:
         scoreboard.game_over()
+
+    if list_bricks:
+        scoreboard.win()
+
+    for brick in list_bricks:
+        pass
 
 screen.exitonclick()
