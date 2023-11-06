@@ -26,7 +26,10 @@ class Ball(Turtle):
 
     def paddle_bounce(self):
         self.y_move *= -1
-        self.move_speed *= 0.9
+
+    def brick_bounce(self):
+        self.y_move *= -1
+        self.move_speed *= .9
 
     def reset_position(self):
         self.goto(0, -530)

@@ -13,4 +13,4 @@ class Brick(Turtle):
         self.goto(brick_pos)
 
     def delete_brick(self):
-        pass
+        self.hideturtle()

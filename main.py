@@ -63,10 +63,14 @@ while game_is_on:
     if ball.ycor() < -600:
         scoreboard.game_over()
 
-    if list_bricks:
+    if len(list_bricks) == 0:
         scoreboard.win()
 
     for brick in list_bricks:
-        pass
+        if ball.distance(brick) < 30:
+            ball.brick_bounce()
+            brick.delete_brick()
+            list_bricks.remove(brick)
+            print(list_bricks)
 
 screen.exitonclick()
