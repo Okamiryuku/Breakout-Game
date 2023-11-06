@@ -8,7 +8,7 @@ import random
 
 
 BALL_SPEED_PARAM = 10  # If the score gets over this the ball moves faster
-
+COLORS = ["white", "red", "green", "blue", "yellow", "orange", "purple", "pink", "brown", "gray", "grey", "cyan"]
 
 # Window Setup
 screen = Screen()
@@ -34,9 +34,10 @@ brick_width = total_width / brick_count
 for _ in range(7):
     x_pos = -380
     for _ in range(brick_count):
-        # Generate a random width for the brick
+        # Generate a random width and color for the brick
+        random_color = random.choice(COLORS)
         random_width = random.uniform(0.5, 2.8)
-        wall = Brick((x_pos, y_pos), random_width)
+        wall = Brick((x_pos, y_pos), width=random_width, color=random_color)
         list_bricks.append(wall)
         x_pos += brick_width
     y_pos -= 50
@@ -76,7 +77,6 @@ while game_is_on:
             brick.delete_brick()
             scoreboard.increase_score()
             list_bricks.remove(brick)
-            print(list_bricks)
 
     if scoreboard.score > BALL_SPEED_PARAM:
         ball.ball_speed()
