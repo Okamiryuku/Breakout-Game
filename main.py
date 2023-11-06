@@ -6,6 +6,10 @@ from score import ScoreBoard
 from bricks import Brick
 import random
 
+
+BALL_SPEED_PARAM = 10  # If the score gets over this the ball moves faster
+
+
 # Window Setup
 screen = Screen()
 screen.setup(width=800, height=1200)
@@ -70,7 +74,12 @@ while game_is_on:
         if ball.distance(brick) < 30:
             ball.brick_bounce()
             brick.delete_brick()
+            scoreboard.increase_score()
             list_bricks.remove(brick)
             print(list_bricks)
+
+    if scoreboard.score > BALL_SPEED_PARAM:
+        ball.ball_speed()
+        BALL_SPEED_PARAM += 5
 
 screen.exitonclick()
