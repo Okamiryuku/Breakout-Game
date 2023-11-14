@@ -14,7 +14,7 @@ COLORS = ["white", "red", "green", "blue", "yellow", "orange", "purple", "pink",
 screen = Screen()
 screen.setup(width=800, height=1200)
 screen.bgcolor("black")
-screen.title("Pong")
+screen.title("Breakout Game")
 screen.tracer(0)
 
 # Calling classes
